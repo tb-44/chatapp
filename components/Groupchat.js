@@ -2,11 +2,9 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import chat from "../lib/chat";
 import config from "../config";
-
 class Groupchat extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             receiverID: "",
             messageText: null,
@@ -14,10 +12,8 @@ class Groupchat extends React.Component {
             user: {},
             isAuthenticated: true
         };
-
         this.GUID = config.GUID;
     }
-
     sendMessage = () => {
         chat.sendGroupMessage(this.GUID, this.state.messageText).then(
             message => {
@@ -33,22 +29,18 @@ class Groupchat extends React.Component {
             }
         );
     };
-
     scrollToBottom = () => {
         const chat = document.getElementById("chatList");
         chat.scrollTop = chat.scrollHeight;
     };
-
     handleSubmit = event => {
         event.preventDefault();
         this.sendMessage();
         event.target.reset();
     };
-
     handleChange = event => {
         this.setState({ messageText: event.target.value });
     };
-
     getUser = () => {
         chat
             .getLoggedinUser()
@@ -64,7 +56,6 @@ class Groupchat extends React.Component {
                 }
             });
     };
-
     messageListener = () => {
         chat.addMessageListener((data, error) => {
             if (error) return console.log(`error: ${error}`);
@@ -78,13 +69,11 @@ class Groupchat extends React.Component {
             );
         });
     };
-
     componentDidMount() {
         this.getUser();
         this.messageListener();
         // chat.joinGroup(this.GUID)
     }
-
     render() {
         const { isAuthenticated } = this.state;
         if (!isAuthenticated) {
@@ -127,5 +116,4 @@ class Groupchat extends React.Component {
         );
     }
 }
-
 export default Groupchat;

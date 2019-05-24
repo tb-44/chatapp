@@ -1,5 +1,6 @@
+
 export default {
-    appId: "testing", //Enter your App ID
-    apiKey: "testing", //Enter your API KEY
-    GUID: "testing", // Enter your group UID
+    appId: process.env.REACT_APP_APPID, 
+    apiKey: process.env.REACT_APP_APIKEY, 
+    GUID: process.env.REACT_APP_GUID
   };

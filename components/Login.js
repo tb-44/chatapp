@@ -2,11 +2,9 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import chat from "../lib/chat";
 import spinner from "../logo.svg";
-
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        
         this.state = {
             username: "",
             isAuthenticated: false,
@@ -15,14 +13,12 @@ class Login extends React.Component {
             errorMessage: ""
         };
     }
-
     onSubmit = e => {
         if (this.state.username !== "") {
             e.preventDefault();
             this.login();
         }
     };
-
     login = () => {
         this.toggleIsSubmitting();
         chat
@@ -41,19 +37,16 @@ class Login extends React.Component {
                 console.log(error);
             });
     };
-
     toggleIsSubmitting = () => {
         this.setState(prevState => ({
             isSubmitting: !prevState.isSubmitting
         }));
     };
-
     handleInputChange = e => {
         this.setState({
             username: e.target.value
         });
     };
-
     render() {
         if (this.state.isAuthenticated) {
             return (
@@ -65,10 +58,9 @@ class Login extends React.Component {
                 />
             );
         }
-
         return (
             <div className="App">
-                <h1>COMET CHAT</h1>
+                <h1>COMETCHAT</h1>
                 <p>Create an account through your CometChat dashboard or login with one of our test users, superhero1, superhero2, etc.</p>
                 <form className="form" onSubmit={this.onSubmit}>
                     <input onChange={this.handleInputChange} type="text" />
@@ -87,5 +79,4 @@ class Login extends React.Component {
         );
     }
 }
-
 export default Login;
