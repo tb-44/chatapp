@@ -1,5 +1,5 @@
 export default {
-    appId: "", //Enter your App ID
-    apiKey: "", //Enter your API KEY
-    GUID: "", // Enter your group UID
+    appId: "testing", //Enter your App ID
+    apiKey: "testing", //Enter your API KEY
+    GUID: "testing", // Enter your group UID
   };
