@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import chat from "../lib/chat";
 import config from "../config";
+
 class Groupchat extends React.Component {
     constructor(props) {
         super(props);
@@ -72,7 +73,7 @@ class Groupchat extends React.Component {
     componentDidMount() {
         this.getUser();
         this.messageListener();
-        // chat.joinGroup(this.GUID)
+        chat.joinGroup(this.GUID)
     }
     render() {
         const { isAuthenticated } = this.state;

@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import chat from "../lib/chat";
 import spinner from "../logo.svg";
+
 class Login extends React.Component {
     constructor(props) {
         super(props);

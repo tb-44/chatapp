@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Switch>
         <Redirect exact from="/" to="/login" />
-        <Route path="/login" component={Login} /> 
+        <Route path="/login" component={Login} />
         <Route path="/chat" component={Groupchat} />
       </Switch>
     );
