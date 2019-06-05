@@ -14,12 +14,14 @@ class Login extends React.Component {
             errorMessage: ""
         };
     }
+
     onSubmit = e => {
         if (this.state.username !== "") {
             e.preventDefault();
             this.login();
         }
     };
+
     login = () => {
         this.toggleIsSubmitting();
         chat
@@ -38,16 +40,19 @@ class Login extends React.Component {
                 console.log(error);
             });
     };
+
     toggleIsSubmitting = () => {
         this.setState(prevState => ({
             isSubmitting: !prevState.isSubmitting
         }));
     };
+
     handleInputChange = e => {
         this.setState({
             username: e.target.value
         });
     };
+
     render() {
         if (this.state.isAuthenticated) {
             return (
@@ -59,10 +64,11 @@ class Login extends React.Component {
                 />
             );
         }
+        
         return (
             <div className="App">
-                <h1>COMETCHAT</h1>
-                <p>Create an account through your CometChat dashboard or login with one of our test users, superhero1, superhero2, etc.</p>
+                <h1>CHAT APP</h1>
+                <p>Create an account through your Chat dashboard or login</p>
                 <form className="form" onSubmit={this.onSubmit}>
                     <input onChange={this.handleInputChange} type="text" />
                     <span className="error">{this.state.errorMessage}</span>
@@ -80,4 +86,5 @@ class Login extends React.Component {
         );
     }
 }
+
 export default Login;
